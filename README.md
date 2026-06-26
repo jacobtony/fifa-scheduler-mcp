@@ -31,7 +31,8 @@ Elicitation provides a standard, secure way to collect that data without hard-co
 
 ### Elicitation in this project
 
-This server uses **form elicitation** to collect the recipient email, reminder time, and favourite team. Key points illustrated by the code:
+Elicitation can be either: **URL Elicitation** or **Form Elicitation**. This server uses **form elicitation** to collect the recipient email, reminder time, and favourite team. Read more on URL Elicitation: (https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests) 
+Key points illustrated by the code:
 
 - It **gracefully degrades**: if the client doesn't support form elicitation, the tool returns a clear message instead of failing silently. (Here, the email is considered mandatory, so a form-capable client is required.)
 - It **respects user choice**: if the user cancels the form, no event is created.
