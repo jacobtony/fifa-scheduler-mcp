@@ -1,17 +1,26 @@
 {
-  "name": "mcp-website-tutorital",
+  "name": "mcp-fifa-scheduler",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/index.js",
   "type": "module",
-  "bin": "./build/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && chmod 755 build/index.js"
+  "bin": {
+    "mcp-fifa-scheduler": "build/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "files": ["build"],
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "fifa",
+    "world-cup",
+    "scheduler"
+  ],
+  "author": "jacobtony",
   "license": "ISC",
-  "description": "",
+  "description": "An MCP server to create and notify events of FIFA World Cup matches for your favourite team.",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "zod": "^3.25.76"
@@ -19,8 +28,5 @@
   "devDependencies": {
     "@types/node": "^25.7.0",
     "typescript": "^6.0.3"
-  },
-  "files": [
-    "build"
-  ]
+  }
 }
