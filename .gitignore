@@ -1,6 +1,4 @@
 node_modules/
-build/
-
 # Logs
 *.log
 npm-debug.log*
