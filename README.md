@@ -97,13 +97,6 @@ Once the inputs are gathered, the handler:
 
   > "Match event for Argentina created and sent to user@example.com with a 60-minute reminder."
 
-### 5. Starting the server
-
-- The `main()` function creates a `StdioServerTransport` and connects the server to it, so the server communicates over **stdio**.
-- Any fatal error in `main()` is logged and the process exits with code `1`.
-
-> Note: The server logs informational/diagnostic output to `stderr` (`console.error`) because `stdout` is reserved for the MCP protocol messages over stdio.
-
 ## Project structure
 
 ```
@@ -131,15 +124,23 @@ npm install
 npm run build
 ```
 
-This compiles `src/index.ts` to `build/index.js` and makes it executable.
-
+This compiles `src/index.ts` to `build/index.js` and makes it executable. 
 ### Run
 
-The server speaks MCP over **stdio**, so it is typically launched by an MCP client rather than run directly. Configure your client to start it via the `mcp-fifa-scheduler` bin or:
+The server speaks MCP over **stdio**, so it is typically launched by an MCP client rather than run directly. Configure your client to start it via the `mcp-fifa-scheduler` bin. On the client, `mcp.json` should be added with the following content:
 
-```bash
-node build/index.js
+```json
+{
+	"servers": {
+		"fifa-scheduler": {
+			"type": "stdio",
+			"command": "node",
+			"args": ["/path_to_index.js"]
+		}
+	}
+}
 ```
+If Copilot is used in VS Code add a directory ```.vscode``` and add ```mcp.json``` within it.
 
 ## Tool reference
 

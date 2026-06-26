@@ -10,8 +10,6 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 			version: "1.0.0",
 		},
 		{
-			// Capabilities advertised by this server during initialization.
-			// Note: `elicitation` is a CLIENT capability and cannot be declared here.
 			capabilities: {
 				tools: { listChanged: true },
 				logging: {},
@@ -49,7 +47,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 							title: "Recipient email",
 							description: "The email of the recipient.",
 							minLength: 1,
-							default: recipientEmail ?? "jacobtony994@gmail.com",
+							default: recipientEmail,
 						},
 						reminderMinutes: {
 							type: "integer",
