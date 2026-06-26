@@ -1,0 +1,9 @@
+{
+	"servers": {
+		"fifa-scheduler": {
+			"type": "stdio",
+			"command": "node",
+			"args": ["${workspaceFolder}/build/index.js"]
+		}
+	}
+}
